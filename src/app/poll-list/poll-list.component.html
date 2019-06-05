@@ -1,0 +1,18 @@
+<div>
+  <h1>Click to see poll members</h1>
+    <table class="table table-hover">
+      <thead>
+          <th>Serial No.</th>
+          <th>Name</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let poll of polls" (click)="getPollDetails(poll.id)">
+          <td>{{poll.id}}</td>
+          <td>{{poll.name}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="canvas-size" *ngIf="showChart">
+        <canvas style="max-height: 600px" #canvas id="canvas" >{{chart}}</canvas>
+    </div> 
+</div>

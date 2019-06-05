@@ -1,0 +1,8 @@
+h1{
+   text-align: center;
+}
+.canvas-size{
+    display: block; 
+    margin: auto;
+    width: 650px !important;
+}
