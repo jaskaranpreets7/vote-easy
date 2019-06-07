@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AppService } from '../app.service';
 
 
@@ -11,13 +11,14 @@ import { AppService } from '../app.service';
 export class PollDetailComponent implements OnInit {
 
   public pollDetails: any[];
+  public members:any[];
   public memberDetails :any = {};
   public id:number;
   vote : number = 0;
   detail : boolean;
   selectedValue:string;
 
-  constructor(private route: ActivatedRoute , private appService : AppService) { 
+  constructor(private route: ActivatedRoute , private appService : AppService, private router : Router) { 
     this.getPolls();
   }
 
@@ -48,11 +49,10 @@ export class PollDetailComponent implements OnInit {
 
       this.appService.getMemberDetails()
         .subscribe(response => {
-          this.memberDetails = response;
-            for(let i = 0 ; i < this.memberDetails.length; i++){
-              if( this.selectedValue === this.memberDetails[i].name){
-                this.memberDetails = this.memberDetails[i];
-                return this.memberDetails;
+          this.members = response;
+            for(let i = 0 ; i < this.members.length; i++){
+              if( this.selectedValue === this.members[i].name){
+                this.memberDetails = this.members[i];
             }
           }
         })
@@ -66,14 +66,22 @@ export class PollDetailComponent implements OnInit {
       
   }
 
-  onVote():void{
+  onVote():any{
     this.vote = this.memberDetails.votes;
     this.vote++;
     
     let updatedData = {...this.memberDetails, votes: this.vote};
-    console.log(updatedData)
-    // this.appService.addVoteCount(updatedData)
+    for(let i = 0; i < this.members.length; i++){
+      if(this.members[i].name === updatedData.name){
+        this.appService.addVoteCount(updatedData, i)
+      }
+    }
+    
+    this.appService.showPollChart();
+    setTimeout(() =>{ this.router.navigate(['polls'])}, 500)
   }
 
-  
+  back(){
+    this.router.navigate(['polls'])
+  }
 }
