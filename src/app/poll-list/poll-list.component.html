@@ -16,7 +16,10 @@
   </div>
   
   <ng-template #chart>
-    <app-chart [chartData]="votes"></app-chart>  
+    <app-chart
+     [votes]="votes"
+     [parties]="parties"
+    ></app-chart>  
   </ng-template>
   
 </div>

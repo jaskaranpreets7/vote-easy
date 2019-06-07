@@ -10,6 +10,7 @@ import { Router} from '@angular/router';
 export class PollListComponent implements OnInit {
   public polls : any[];
   public votes : any[] = [];
+  public parties : any[] = [];
   chartData : any = {};
   showPoll:boolean = true;
 
@@ -18,8 +19,6 @@ export class PollListComponent implements OnInit {
         this.showPoll = false;
         this.giveChartData();
       }
-      
-     
   }
 
   ngOnInit():void {
@@ -52,7 +51,7 @@ export class PollListComponent implements OnInit {
           result.forEach(item => {
               this.chartData[item.party] += item.votes;
             });
-
+            this.parties = Object.keys(this.chartData)
             this.votes = Object.values(this.chartData)
           }
         )

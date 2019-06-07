@@ -7,31 +7,29 @@ import {Chart} from 'chart.js';
   styleUrls: ['./chart.component.css']
 })
 export class ChartComponent implements OnInit,OnChanges{
-  @Input() chartData:any;
 
+  @Input() votes:any;
+  @Input() parties:any;
   @ViewChild('canvas') canvas:ElementRef;
 
   public chart :any[];
-  public values : any[];
 
-  constructor() {
-  }
-
-  ngOnInit() { 
-  }
+  constructor() {}
+  
+  ngOnInit() {}
 
   ngOnChanges(changes){
-
-    this.values = changes.chartData.currentValue;
+    this.parties = changes.parties.currentValue;
+    this.votes = changes.votes.currentValue;
     setTimeout( () => { 
       this.chart = new Chart(this.canvas.nativeElement.getContext('2d'),
       {
       type: 'bar',
       data:{
-        labels: ["BJP", "Congress","AAP"],
+        labels: this.parties,
         datasets: [
           {
-            data: this.values,
+            data: this.votes,
             borderColor: '#3cba9f',
             fill: false
           },
