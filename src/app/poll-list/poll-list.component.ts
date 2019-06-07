@@ -1,62 +1,60 @@
-import { Component, OnInit, AfterViewInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AppService } from '../app.service';
-import { Router } from '@angular/router';
-import {Chart} from 'chart.js';
+import { Router} from '@angular/router';
 
 @Component({
   selector: 'app-poll-list',
   templateUrl: './poll-list.component.html',
   styleUrls: ['./poll-list.component.css']
 })
-export class PollListComponent implements OnInit, AfterViewInit {
-  @ViewChild('canvas') canvas:ElementRef;
-
+export class PollListComponent implements OnInit {
   public polls : any[];
-  public chart :any[];
-  public showChart:boolean = false;
+  public votes : any[] = [];
+  chartData : any = {};
+  showPoll:boolean = true;
 
-  constructor(private appService :AppService , private router: Router) { }
+  constructor(private appService :AppService , private router: Router) { 
+      if(!this.appService.showPolls){
+        this.showPoll = false;
+        this.giveChartData();
+      }
+      
+     
+  }
 
-  ngOnInit() {
+  ngOnInit():void {
    this.appService.getDetails()
     .subscribe(res =>{ 
       this.polls = res;
-    })
+    })  
   }
 
   getPollDetails(id:number):any{
-    this.router.navigate([`poll-details/${id}`])
+    this.router.navigate([`poll-details/${id}`]);
   }
 
+  
+  giveChartData(){
+    let result = [];
+    this.appService.getMemberDetails()
+      .subscribe(
+        res => {
+          result = res;
+          for(let i = 0 ; i < result.length ; i++){
+              let item = result[i];
+              if(!this.chartData.hasOwnProperty(item.party)){
+                  this.chartData[item.party] = null;
+                }else{
+                  this.chartData[item.party] = 0;
+                }
+            };
 
-  ngAfterViewInit(){
-    setTimeout( () => { this.chart = new Chart(this.canvas.nativeElement.getContext('2d'),{
-      type: 'bar',
-      data:{
-        labels: ["AAP","BJP", "Congress"],
-        datasets: [
-          {
-            data: [ 29, 75, 40, 0],
-            borderColor: '#3cba9f',
-            fill: false
-          },
-        
-        ]
-      },
-      options: {
-        legend: {
-          display: false
-        },
-        scales: {
-          xAxes: [{
-            display: true
-          }],
-          yAxes: [{
-            display: true
-          }]
-        }
-      }
-    }) }, 1)
+          result.forEach(item => {
+              this.chartData[item.party] += item.votes;
+            });
+
+            this.votes = Object.values(this.chartData)
+          }
+        )
   }
-
 }
