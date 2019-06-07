@@ -6,11 +6,13 @@ import { PollDetailComponent } from './poll-detail/poll-detail.component';
 import { PollListComponent } from './poll-list/poll-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
+import { SignInComponent } from './sign-in/sign-in.component';
 
 const routes: Routes = [
   { path : '', component: HomeComponent},
   { path : 'home', component: HomeComponent },
   { path : 'polls', component: PollListComponent },
+  { path : 'sign-in', component: SignInComponent},
   { path : 'poll-details/:id', component: PollDetailComponent },
   { path : '**', component: NotFoundComponent}
 ];

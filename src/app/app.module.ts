@@ -10,6 +10,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppService } from './app.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -18,12 +20,14 @@ import { HomeComponent } from './home/home.component';
     PollListComponent,
     PollDetailComponent,
     NotFoundComponent,
-    HomeComponent
+    HomeComponent,
+    SignInComponent,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [AppService],
   bootstrap: [AppComponent]
