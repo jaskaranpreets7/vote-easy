@@ -1,9 +1,15 @@
 <div>
-  <nav>
-    <ul class="topnav">
-      <li><a [routerLink] ="['/home']">Home</a></li>
-      <li><a [routerLink] ="['/polls']">Polls</a></li>
-      <li class="topnav-right"><a>Signin with Google</a></li>
+  <nav class="bg-light">
+    <ul class="nav justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link"  [routerLink] ="['/home']">Home</a>
+      </li>    
+      <li class="nav-item">
+        <a class="nav-link" [routerLink] ="['/polls']">Polls</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" [routerLink] ="['/sign-in']">Sign In</a>
+      </li>
     </ul>
   </nav>
 </div>
