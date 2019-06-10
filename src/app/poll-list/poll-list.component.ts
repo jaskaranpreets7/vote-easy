@@ -47,7 +47,6 @@ export class PollListComponent implements OnInit {
                   this.chartData[item.party] = 0;
                 }
             };
-
           result.forEach(item => {
               this.chartData[item.party] += item.votes;
             });
