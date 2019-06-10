@@ -1,0 +1,70 @@
+{
+  "data1" : [ {
+    "id" : 1,
+    "name" : "Congress",
+    "persons" : [ "Sonia Gandhi", "Navjot Singh Sidhu", "Rahul Gandhi" ]
+  }, {
+    "id" : 2,
+    "name" : "BJP",
+    "persons" : [ "Narendera Modi", "Arun Jateli" ]
+  }, {
+    "id" : 3,
+    "name" : "AAP",
+    "persons" : [ "Kejriwal", "Baghwant Mann" ]
+  }, {
+    "id" : 4,
+    "name" : "Samajwadi Party",
+    "persons" : [ "Mulayan Singh Yadav", "Akhilesh Yadav" ]
+  }, {
+    "id" : 5,
+    "name" : "RJD",
+    "persons" : [ "Lalu Prasad Yadav", "Tejashwi Yadav" ]
+  } ],
+
+
+  "data2" : [ {
+    "name" : "Narendera Modi",
+    "party" : "BJP",
+    "votes" : 42
+  }, {
+    "name" : "Arun Jateli",
+    "party" : "BJP",
+    "votes" : 20
+  }, {
+    "name" : "Sonia Gandhi",
+    "party" : "Congress",
+    "votes" : 21
+  }, {
+    "name" : "Rahul Gandhi",
+    "party" : "Congress",
+    "votes" : 13
+  }, {
+    "name" : "Navjot Singh Sidhu",
+    "party" : "Congress",
+    "votes" : 41
+  }, {
+    "name" : "Kejriwal",
+    "party" : "AAP",
+    "votes" : 36
+  }, {
+    "name" : "Baghwant Mann",
+    "party" : "AAP",
+    "votes" : 38
+  }, {
+    "name" : "Mulayan Singh Yadav",
+    "party" : "Samajwadi Party",
+    "votes" : 18
+  } , {
+    "name" : "Akhilesh Yadav",
+    "party" : "Samajwadi Party",
+    "votes" : 15
+  } , {
+    "name" : "Lalu Prasad Yadav",
+    "party" : "RJD",
+    "votes" : 20
+  } , {
+    "name" : "Tejashwi Yadav",
+    "party" : "RJD",
+    "votes" : 31
+  }  ]
+}
