@@ -1,30 +1,37 @@
 <div>
     <div>
-    <form>
-        <select class="form-control select" (change)="getMemberDetail($event)">
-            <option>Select Here</option>
-            <option *ngFor="let poll of pollDetails" [value]=[poll]>{{poll}}</option>
-        </select>
-    </form>
+        <form>
+            <select class="form-control select" (change)="getMemberDetail($event)">
+                <option>Select Here</option>
+                <option *ngFor="let poll of pollDetails" [value]=[poll]>{{poll}}</option>
+            </select>
+        </form>
     </div>
     <div *ngIf="detail && memberDetails">
-        <div class="details">
-            <div class="detail">
-                <div><b id="candidate"><i>Candidate</i>:</b> <span>{{memberDetails.name}}</span></div>
-                <div><b id="party"><i>Party</i>:</b><span>{{memberDetails.party}}</span> </div>
-            </div>
-            <div class="btn-pos" >
-                <div class="btn-group">
-                    <button class="btn btn-primary btn-lg " (click)="onVote()">&nbsp;Vote&nbsp;&nbsp;</button>
-                    <button class="btn btn-danger btn-lg" (click)="back()">Cancel</button> 
+        <div class="card">
+            <div class="card-body">
+                <div class="card-header">
+                    <div>
+                        <b id="candidate">
+                            <i>Candidate</i>:</b>
+                        <span>{{memberDetails.name}}</span>
+                    </div>
+                    <div>
+                        <b id="party">
+                            <i>Party</i>:</b>
+                        <span>{{memberDetails.party}}</span>
+                    </div>
                 </div>
-                  
-            </div>  
+                <div class="card-footer btn-pos">
+                    <div class="btn-group">
+                        <button class="btn btn-primary btn-lg " (click)="onVote()">&nbsp;Vote&nbsp;&nbsp;</button>
+                        <button class="btn btn-danger btn-lg" (click)="back()">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
         </div>
-        
-        
+
+
     </div>
 </div>
-
-
-
