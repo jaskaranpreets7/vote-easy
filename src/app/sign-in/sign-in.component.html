@@ -1,11 +1,13 @@
 <div class="card-size">
-  <div class="card" >
+  <div class="card">
     <div class="card-header">
       <h2 class="card-title">Sign In</h2>
     </div>
     <div class="card-body">
-      <button>Google</button>
-      <button>Facebook</button>
+      <div>
+        <button id="google" class="btn" (click)="signInWithGoogle()"><a class="fa fa-google"></a>Google</button>
+        <button id="facebook" class="btn" (click)="signInWithFacebook()"><a class="fa fa-facebook"></a>Facebook</button>
+      </div>
     </div>
   </div>
 </div>
