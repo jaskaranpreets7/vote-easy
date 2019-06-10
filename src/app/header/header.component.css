@@ -15,17 +15,29 @@ ul.topnav li {
 ul.topnav li.topnav-right {
     float: right;
 }
-ul.topnav li a {
-    display:block;
+*/
+ul > li > a {
+    color: rgb(81, 81, 250);
     text-decoration: none;
     min-height: 16px;
     text-align: center;
     padding: 12px;
     text-transform: uppercase;
-    color: rgb(14, 13, 13);
+    cursor: pointer;
 }
 
-ul.topnav li a:hover{
-    background-color: black;
-    color: white; 
-} */
+ul> li > a:hover{
+    color: rgb(14, 13, 13); 
+} 
+h2{
+    font-size:40px
+}
+
+nav{
+    min-width:100% ;
+}
+div > nav{
+    border-top: 1px solid #c5c3c3
+}
+
+
