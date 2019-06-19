@@ -29,12 +29,25 @@ export class AuthService {
   }
 
   signInWithGoogle(){
+    sessionStorage.setItem("session", '25');
+    setTimeout(()=>{
+      alert("Session got expired");
+      this.logout()
+      sessionStorage.clear();
+    },Number(sessionStorage.getItem("session")) * 60000);
+
     return this.firebaseAuth.auth.signInWithPopup(
       new firebase.auth.GoogleAuthProvider()
     )
   }
 
   signInWithFacebook(){
+    sessionStorage.setItem("session", '25');
+    setTimeout(()=>{
+      alert("Session got expired");
+      this.logout()
+      sessionStorage.clear();
+    },Number(sessionStorage.getItem("session")) * 60000);
     return this.firebaseAuth.auth.signInWithPopup(
       new firebase.auth.FacebookAuthProvider()
     )
@@ -50,6 +63,8 @@ export class AuthService {
   }
 
   logout() {
+    sessionStorage.clear();
+    clearTimeout();
     this.firebaseAuth.auth.signOut()
     .then((res) => this.router.navigate(['/']));
   }
