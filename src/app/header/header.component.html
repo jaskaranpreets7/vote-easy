@@ -1,17 +1,17 @@
 <nav class="bg-light">
-    <ul class="nav justify-content-center">
-      <h2 class="navbar-brand">Go Vote</h2>
-    </ul>
+  <ul class="nav justify-content-center">
+    <h2 class="navbar-brand">Go Vote</h2>
+  </ul>
 </nav>
 
 <div *ngIf="authService.isLoggedIn()">
   <nav class="bg-light">
     <ul class="nav justify-content-center">
       <li class="nav-item">
-        <a class="nav-link"  [routerLink] ="['/home']">Home</a>
-      </li>    
+        <a class="nav-link" [routerLink]="['/home']">Home</a>
+      </li>
       <li class="nav-item">
-        <a class="nav-link" [routerLink] ="['/polls']">Polls</a>
+        <a class="nav-link" [routerLink]="['/polls']">Polls</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" (click)="logout()">Logout</a>
@@ -19,4 +19,3 @@
     </ul>
   </nav>
 </div>
-
