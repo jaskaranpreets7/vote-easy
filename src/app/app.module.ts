@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import { SignInComponent } from './sign-in/sign-in.component';
 import { ChartComponent } from './chart/chart.component';
 import { AuthService } from './auth/auth.service';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { AuthService } from './auth/auth.service';
     NotFoundComponent,
     HomeComponent,
     SignInComponent,
-    ChartComponent
+    ChartComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

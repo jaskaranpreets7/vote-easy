@@ -10,8 +10,8 @@ import { AuthGuardService } from './auth/auth-guard.service';
 
 
 const routes: Routes = [
-  { path : '', component: SignInComponent},
-  { path : 'home', component: HomeComponent , canActivate:[AuthGuardService] },
+  { path : '' ,  component: SignInComponent},
+  { path : 'home',component: HomeComponent , canActivate:[AuthGuardService] },
   { path : 'polls', component: PollListComponent, canActivate:[AuthGuardService]  },
   { path : 'poll-details/:id', component: PollDetailComponent, canActivate:[AuthGuardService]  },
   { path : '**', component: NotFoundComponent}
