@@ -1,31 +1,29 @@
 .card-size{
     display: block;
-    width: 50%;
+    width: 60%;
     margin: 7% auto;
 }
 
-.card-body > div {
-    display: block;
-    margin: 0% 0% 0% 29.5%;
-}
+.btn-pos{
+    text-align: center;
+    padding: 12px 0px 12px 0px;
+ }
 
-div > button{
-    margin-right:7px; 
-}
 
 #facebook{
     background: #3B5998;
     color: white;
+    font-size: 17px
 }
 
 #google{
     background: #dd4b39;
     color: white;
+    font-size: 17px;
 }
 
 .fa {
-    font-size: 25px;
-    width: 35px;
+    font-size: 21px;
     text-align: center;
     text-decoration: none;
 }
